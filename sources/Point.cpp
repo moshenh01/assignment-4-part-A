@@ -3,19 +3,19 @@
 #include "Point.hpp"
 
 
-Point::Point(double x, double y) : m_x(x), m_y(y) {}
+Point::Point(double xxx, double yyy) : m_x(xxx), m_y(yyy) {}
 
 double Point::distance(const Point& other) const {
         double dx = m_x - other.m_x;
         double dy = m_y - other.m_y;
-        return std::sqrt(dx * dx + dy * dy);
+        return std::sqrt((dx * dx) + (dy * dy));
 }
 
 void Point::print() const {
         std::cout << "(" << m_x << ", " << m_y << ")";
 }
 
-Point Point::moveTowards(const Point& source, const Point& dest, double distance) const
+Point Point::moveTowards(const Point& source, const Point& dest, double distance) 
 {
     // Calculate the distance between the source and destination points
     double dx = dest.m_x - source.m_x;

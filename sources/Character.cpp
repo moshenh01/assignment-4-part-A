@@ -4,7 +4,7 @@
 Character::Character(const Point& location, const std::string& name, int hitPoints) 
 : m_location(location), m_name(name), m_hitPoints(hitPoints) {}
 
-Character::~Character() {}
+
 
 //?????????????????????????????????????/
 bool Character::isAlive() const {
@@ -32,10 +32,19 @@ void Character::setLocation(const Point& location) {
     m_location = location;
 }
 
-std::string& Character::print() const {
-    std::cout << "[" << (isAlive() ? " " : "X") << "] ";
-    std::cout << m_name << " - " << m_hitPoints << " HP ";
-    m_location.print();
-    std::cout << std::endl;
+//print all types of characters
+std::string Character::print() const {
+    std::ostringstream oss;
+    
+    if (isAlive()) {
+        oss << getName() << " HP: " << getHitPoints() << " ";
+    } else {
+        oss <<"("<< getName() << ")";
+    }
+    oss <<"Location "<< getLocation().getX() << "," << getLocation().getY() << " ";
+    
+  
+    return oss.str();
 }
+
 

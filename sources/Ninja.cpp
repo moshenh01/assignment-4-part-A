@@ -4,7 +4,6 @@
 Ninja::Ninja(const Point& location, const std::string& name, int speed, int hitPoints)
 : Character(location, name, hitPoints), m_speed(speed) {}
 
-Ninja::~Ninja() {}
 
 void Ninja::move(Character* enemy) {
     Point dest = enemy->getLocation();
@@ -24,5 +23,16 @@ void Ninja::slash(Character* enemy) {
     if (isAlive()&&enemy->isAlive()&&distance_to_enemy<=1) {
         enemy->hit(31);
     }
+}
+std::string Ninja::print() const {
+    std::string output = "N  " + Character::print();
+    if (isAlive())
+    {
+        output += "Speed: " + std::to_string(m_speed);
+    }
+    
+  
+
+    return output;
 }
     

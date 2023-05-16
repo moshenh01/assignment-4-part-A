@@ -6,10 +6,10 @@
 
 class Point {
 public:
-    Point(double x, double y);
+    Point(double xxx, double yyy);
     double distance(const Point& other) const;
     void print() const;
-    Point moveTowards(const Point& source, const Point& dest, double distance) const;
+    static Point moveTowards(const Point& source, const Point& dest, double distance) ;
 
     double getX() const { return m_x; }
     double getY() const { return m_y; }
